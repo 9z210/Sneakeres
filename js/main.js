@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.querySelector('.overlay');
   const close = document.getElementById('close');
   const items = document.querySelectorAll('.item img');
+  const list = document.querySelector('.list-close');
 
   open.addEventListener('click', () => {
     overlay.classList.add('show');
@@ -17,6 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     open.classList.remove('hide');
   });
 
+  overlay.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    open.classList.remove('hide');
+  })
+
+   list.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    open.classList.remove('hide');
+  })
+
 $(function(){
   $('.slick-area').slick({
     slidesToShow: 3,
@@ -25,6 +36,16 @@ $(function(){
     centerMode: true,
     centerPadding: "100px",
     autoplay: true,
+
+    responsive:[
+      {
+        breakpoint:768,
+        settings:{
+          slidesToShow:1,
+          centerPadding:"50px"
+        }
+      }
+    ]
   });
 });
 
